@@ -19,8 +19,9 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar setUser={setUser} />
       <main>
+        <p>This is the Main Menu</p>
         {/* <Switch>
 
     </Switch> */}
