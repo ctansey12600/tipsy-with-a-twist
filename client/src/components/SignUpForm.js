@@ -41,6 +41,7 @@ function SignUpForm({ onLogin }) {
         type="text"
         id="username"
         autoComplete="off"
+        placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -48,6 +49,7 @@ function SignUpForm({ onLogin }) {
         type="text"
         id="first_name"
         autoComplete="off"
+        placeholder="First Name"
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
       />
@@ -55,12 +57,14 @@ function SignUpForm({ onLogin }) {
         type="text"
         id="last_name"
         autoComplete="off"
+        placeholder="Last Name"
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
       />
       <input
         type="password"
         id="password"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         autoComplete="current-password"
@@ -68,16 +72,19 @@ function SignUpForm({ onLogin }) {
       <input
         type="password"
         id="password_confirmation"
+        placeholder="Confirm Password"
         value={passwordConfirmation}
         onChange={(e) => setPasswordConfirmation(e.target.value)}
         autoComplete="current-password"
       />
       <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-      <ul>
-        {errors.map((err) => (
-          <li key={err}>{err}</li>
-        ))}
-      </ul>
+      {errors ? (
+        <ul>
+          {errors.map((err) => (
+            <li key={err}>{err}</li>
+          ))}
+        </ul>
+      ) : null}
     </form>
   );
 }

@@ -31,6 +31,7 @@ function LoginForm({ onLogin }) {
         type="text"
         id="username"
         autoComplete="off"
+        placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -38,15 +39,18 @@ function LoginForm({ onLogin }) {
         type="password"
         id="password"
         autoComplete="current-password"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
-      <ul>
-        {errors.map((err) => (
-          <li key={err}>{err}</li>
-        ))}
-      </ul>
+      {errors ? (
+        <ul>
+          {errors.map((err) => (
+            <li key={err}>{err}</li>
+          ))}
+        </ul>
+      ) : null}
     </form>
   );
 }
